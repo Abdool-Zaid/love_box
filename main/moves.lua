@@ -1,5 +1,5 @@
 local res = {}
-    res.increment= 1
+    res.increment= 7
 function res.move_box(character,dt)
     local Char = character
         handle_speed()
@@ -31,23 +31,18 @@ end
 
 function handle_speed ()
    
-    if love.keyboard.isDown("z") then
-        if res.increment < 15 then
-            local x = math.abs(res.increment)+ 2
-            res.increment= x
-            print(res.increment)
-        end
-    end 
     
-    if love.keyboard.isDown("x") then
-        if res.increment > 2 then
-            local x = math.abs(res.increment)- 2
-            res.increment= x
-            print(res.increment)
+    function love.keypressed(key)
+        if key == "space" then
+            res.increment = 15
         end
-    end 
+     end
     
-   
+    function love.keyreleased(key)
+        if key == "space" then
+        res.increment=7
+        end
+     end
 
   
 end
